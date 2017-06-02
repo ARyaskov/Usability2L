@@ -1,0 +1,21 @@
+[@meta.className == "Label"]
+[j<text.length()]:-[]
+
+[text.at(j).isLower()] :- [isUpperCase = false].
+
+[@global.isUpperCase]:-[@errors += "Текст, написанный заглавными буквами утомляет глаза, его сложнее читать.\
+ Если нужно подчеркнуть значимость надписи, лучше упомяните его в справке,\
+ после нескольких сеансов использования программы, пользователь поймет посыл и будет только\
+ отвлекаться на прописные буквы в дальнейшем."].
+ 
+ 
+[@meta.define(serifFontFamily, QStringList, global].
+[@global.serifFontFamily.append("Times New Roman")].
+[@global.serifFontFamily.append("Georgia")].
+[@meta.className == "Label", @global.serifFontFamily.contains(@font.family())]:-[@warnings += "Рекомендуется применять в надписях шрифты без засечек, такие как Verdana или Tahoma."].
+
+
+[@meta.className == "Label", @global.serifFontFamily.contains(@font.family()), @font.pixelSize() < 10]:-[@warnings += "Поскольку у шрифтов с засечками и сглаживанием наблюдаются проблемы с отображением для малых кеглей, не рекомендуется использовать их для этой цели. Если возникла необходимость сделать миниатюрный текст – воспользуйтесь, к примеру, Verdana."].
+
+[@meta.className == "Label", @width < @fontMetrics.width(@text)]:-[@errors += "Необходимо увеличить размеры метки, чтобы в ней поместились все символы её текста."].
+              

@@ -1,0 +1,5 @@
+Toolbar Icon Set 2 BY shlyapnikova http://shlyapnikova.deviantart.com/
+
+bulb.png -> (warning.png)
+warning.png -> (error.png)
+

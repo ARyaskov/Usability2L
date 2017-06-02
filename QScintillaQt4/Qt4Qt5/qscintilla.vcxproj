@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FA7CC60E-9DF9-3AE3-B1C8-81F6B7022AA5}</ProjectGuid>
+    <RootNamespace>qscintilla2</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>qscintilla2</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>qscintilla2</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">qscintilla2</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">qscintilla2</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>"$(QTDIR)\include\QtCore";"$(QTDIR)\include\QtGui";"$(QTDIR)\include";".";"..\include";"..\lexlib";"..\src";"$(QTDIR)\include\ActiveQt";"release";..\..\..\..\Develop\Qt\4.8.6\mkspecs\default;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;QSCINTILLA_MAKE_DLL;SCINTILLA_QT;SCI_LEXER;QT_THREAD_SUPPORT;QT_DLL;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\QtGui4.lib;$(QTDIR)\lib\QtCore4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;c:\Develop\Qt\4.8.6\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\qscintilla2.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;QSCINTILLA_MAKE_DLL;SCINTILLA_QT;SCI_LEXER;QT_THREAD_SUPPORT;QT_DLL;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>"$(QTDIR)\include\QtCore";"$(QTDIR)\include\QtGui";"$(QTDIR)\include";".";"..\include";"..\lexlib";"..\src";"$(QTDIR)\include\ActiveQt";"debug";..\..\..\..\Develop\Qt\4.8.6\mkspecs\default;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;QSCINTILLA_MAKE_DLL;SCINTILLA_QT;SCI_LEXER;QT_THREAD_SUPPORT;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\QtGuid4.lib;$(QTDIR)\lib\QtCored4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;c:\Develop\Qt\4.8.6\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <OutputFile>$(OutDir)\qscintilla2.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;QSCINTILLA_MAKE_DLL;SCINTILLA_QT;SCI_LEXER;QT_THREAD_SUPPORT;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\lexlib\Accessor.cpp" />
+    <ClCompile Include="..\src\AutoComplete.cpp" />
+    <ClCompile Include="..\src\CallTip.cpp" />
+    <ClCompile Include="..\src\CaseConvert.cpp" />
+    <ClCompile Include="..\src\CaseFolder.cpp" />
+    <ClCompile Include="..\src\Catalogue.cpp" />
+    <ClCompile Include="..\src\CellBuffer.cpp" />
+    <ClCompile Include="..\src\CharClassify.cpp" />
+    <ClCompile Include="..\lexlib\CharacterCategory.cpp" />
+    <ClCompile Include="..\lexlib\CharacterSet.cpp" />
+    <ClCompile Include="..\src\ContractionState.cpp" />
+    <ClCompile Include="..\src\Decoration.cpp" />
+    <ClCompile Include="..\src\Document.cpp" />
+    <ClCompile Include="..\src\Editor.cpp" />
+    <ClCompile Include="..\src\ExternalLexer.cpp" />
+    <ClCompile Include="..\src\Indicator.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_SciClasses.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SciClasses.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="InputMethod.cpp" />
+    <ClCompile Include="..\src\KeyMap.cpp" />
+    <ClCompile Include="..\lexlib\LexerBase.cpp" />
+    <ClCompile Include="..\lexlib\LexerModule.cpp" />
+    <ClCompile Include="..\lexlib\LexerNoExceptions.cpp" />
+    <ClCompile Include="..\lexlib\LexerSimple.cpp" />
+    <ClCompile Include="..\src\LineMarker.cpp" />
+    <ClCompile Include="ListBoxQt.cpp" />
+    <ClCompile Include="MacPasteboardMime.cpp" />
+    <ClCompile Include="..\src\PerLine.cpp" />
+    <ClCompile Include="PlatQt.cpp" />
+    <ClCompile Include="..\src\PositionCache.cpp" />
+    <ClCompile Include="..\lexlib\PropSetSimple.cpp" />
+    <ClCompile Include="..\src\RESearch.cpp" />
+    <ClCompile Include="..\src\RunStyles.cpp" />
+    <ClCompile Include="SciClasses.cpp" />
+    <ClCompile Include="..\src\ScintillaBase.cpp" />
+    <ClCompile Include="ScintillaQt.cpp" />
+    <ClCompile Include="..\src\Selection.cpp" />
+    <ClCompile Include="..\src\Style.cpp" />
+    <ClCompile Include="..\lexlib\StyleContext.cpp" />
+    <ClCompile Include="..\src\UniConversion.cpp" />
+    <ClCompile Include="..\src\ViewStyle.cpp" />
+    <ClCompile Include="..\lexlib\WordList.cpp" />
+    <ClCompile Include="..\src\XPM.cpp" />
+    <ClCompile Include="qsciabstractapis.cpp" />
+    <ClCompile Include="qsciapis.cpp" />
+    <ClCompile Include="qscicommand.cpp" />
+    <ClCompile Include="qscicommandset.cpp" />
+    <ClCompile Include="qscidocument.cpp" />
+    <ClCompile Include="qscilexer.cpp" />
+    <ClCompile Include="qscilexerbash.cpp" />
+    <ClCompile Include="qscilexerbatch.cpp" />
+    <ClCompile Include="qscilexercmake.cpp" />
+    <ClCompile Include="qscilexercpp.cpp" />
+    <ClCompile Include="qscilexercsharp.cpp" />
+    <ClCompile Include="qscilexercss.cpp" />
+    <ClCompile Include="qscilexercustom.cpp" />
+    <ClCompile Include="qscilexerd.cpp" />
+    <ClCompile Include="qscilexerdiff.cpp" />
+    <ClCompile Include="qscilexerfortran.cpp" />
+    <ClCompile Include="qscilexerfortran77.cpp" />
+    <ClCompile Include="qscilexerhtml.cpp" />
+    <ClCompile Include="qscilexeridl.cpp" />
+    <ClCompile Include="qscilexerjava.cpp" />
+    <ClCompile Include="qscilexerjavascript.cpp" />
+    <ClCompile Include="qscilexerlua.cpp" />
+    <ClCompile Include="qscilexermakefile.cpp" />
+    <ClCompile Include="qscilexermatlab.cpp" />
+    <ClCompile Include="qscilexeroctave.cpp" />
+    <ClCompile Include="qscilexerpascal.cpp" />
+    <ClCompile Include="qscilexerperl.cpp" />
+    <ClCompile Include="qscilexerpostscript.cpp" />
+    <ClCompile Include="qscilexerpov.cpp" />
+    <ClCompile Include="qscilexerproperties.cpp" />
+    <ClCompile Include="qscilexerpython.cpp" />
+    <ClCompile Include="qscilexerruby.cpp" />
+    <ClCompile Include="qscilexerspice.cpp" />
+    <ClCompile Include="qscilexersql.cpp" />
+    <ClCompile Include="qscilexertcl.cpp" />
+    <ClCompile Include="qscilexertex.cpp" />
+    <ClCompile Include="qscilexerverilog.cpp" />
+    <ClCompile Include="qscilexervhdl.cpp" />
+    <ClCompile Include="qscilexerxml.cpp" />
+    <ClCompile Include="qscilexeryaml.cpp" />
+    <ClCompile Include="qscimacro.cpp" />
+    <ClCompile Include="qsciprinter.cpp" />
+    <ClCompile Include="qsciscintilla.cpp" />
+    <ClCompile Include="qsciscintillabase.cpp" />
+    <ClCompile Include="qscistyle.cpp" />
+    <ClCompile Include="qscistyledtext.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\lexlib\Accessor.h" />
+    <ClInclude Include="..\src\AutoComplete.h" />
+    <ClInclude Include="..\src\CallTip.h" />
+    <ClInclude Include="..\src\CaseConvert.h" />
+    <ClInclude Include="..\src\CaseFolder.h" />
+    <ClInclude Include="..\src\Catalogue.h" />
+    <ClInclude Include="..\src\CellBuffer.h" />
+    <ClInclude Include="..\src\CharClassify.h" />
+    <ClInclude Include="..\lexlib\CharacterCategory.h" />
+    <ClInclude Include="..\lexlib\CharacterSet.h" />
+    <ClInclude Include="..\src\ContractionState.h" />
+    <ClInclude Include="..\src\Decoration.h" />
+    <ClInclude Include="..\src\Document.h" />
+    <ClInclude Include="..\src\Editor.h" />
+    <ClInclude Include="..\src\ExternalLexer.h" />
+    <ClInclude Include="..\src\FontQuality.h" />
+    <ClInclude Include="..\include\ILexer.h" />
+    <ClInclude Include="..\src\Indicator.h" />
+    <ClInclude Include="..\src\KeyMap.h" />
+    <ClInclude Include="..\lexlib\LexAccessor.h" />
+    <ClInclude Include="..\lexlib\LexerBase.h" />
+    <ClInclude Include="..\lexlib\LexerModule.h" />
+    <ClInclude Include="..\lexlib\LexerNoExceptions.h" />
+    <ClInclude Include="..\lexlib\LexerSimple.h" />
+    <ClInclude Include="..\src\LineMarker.h" />
+    <ClInclude Include="ListBoxQt.h" />
+    <ClInclude Include="..\lexlib\OptionSet.h" />
+    <ClInclude Include="..\src\Partitioning.h" />
+    <ClInclude Include="..\src\PerLine.h" />
+    <ClInclude Include="..\include\Platform.h" />
+    <ClInclude Include="..\src\PositionCache.h" />
+    <ClInclude Include="..\lexlib\PropSetSimple.h" />
+    <ClInclude Include="..\src\RESearch.h" />
+    <ClInclude Include="..\src\RunStyles.h" />
+    <CustomBuild Include="SciClasses.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DQSCINTILLA_MAKE_DLL -DSCINTILLA_QT -DSCI_LEXER -DQT_THREAD_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DNDEBUG -D_WINDLL "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include" "-I." "-I.\..\include" "-I.\..\lexlib" "-I.\..\src" "-I$(QTDIR)\include\ActiveQt" "-I.\release" "-I.\..\..\..\..\Develop\Qt\4.8.6\mkspecs\default"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing SciClasses.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DQSCINTILLA_MAKE_DLL -DSCINTILLA_QT -DSCI_LEXER -DQT_THREAD_SUPPORT -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -D_WINDLL "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include" "-I." "-I.\..\include" "-I.\..\lexlib" "-I.\..\src" "-I$(QTDIR)\include\ActiveQt" "-I.\debug" "-I.\..\..\..\..\Develop\Qt\4.8.6\mkspecs\default"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing SciClasses.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\include\SciLexer.h" />
+    <ClInclude Include="SciNamespace.h" />
+    <ClInclude Include="..\include\Scintilla.h" />
+    <ClInclude Include="..\src\ScintillaBase.h" />
+    <ClInclude Include="ScintillaQt.h" />
+    <ClInclude Include="..\include\ScintillaWidget.h" />
+    <ClInclude Include="..\src\Selection.h" />
+    <ClInclude Include="..\src\SplitVector.h" />
+    <ClInclude Include="..\src\Style.h" />
+    <ClInclude Include="..\lexlib\StyleContext.h" />
+    <ClInclude Include="..\lexlib\SubStyles.h" />
+    <ClInclude Include="..\src\UniConversion.h" />
+    <ClInclude Include="..\src\UnicodeFromUTF8.h" />
+    <ClInclude Include="..\src\ViewStyle.h" />
+    <ClInclude Include="..\lexlib\WordList.h" />
+    <ClInclude Include="..\src\XPM.h" />
+    <ClInclude Include="Qsci\qsciabstractapis.h" />
+    <ClInclude Include="Qsci\qsciapis.h" />
+    <ClInclude Include="Qsci\qscicommand.h" />
+    <ClInclude Include="Qsci\qscicommandset.h" />
+    <ClInclude Include="Qsci\qscidocument.h" />
+    <ClInclude Include="Qsci\qsciglobal.h" />
+    <ClInclude Include="Qsci\qscilexer.h" />
+    <ClInclude Include="Qsci\qscilexerbash.h" />
+    <ClInclude Include="Qsci\qscilexerbatch.h" />
+    <ClInclude Include="Qsci\qscilexercmake.h" />
+    <ClInclude Include="Qsci\qscilexercpp.h" />
+    <ClInclude Include="Qsci\qscilexercsharp.h" />
+    <ClInclude Include="Qsci\qscilexercss.h" />
+    <ClInclude Include="Qsci\qscilexercustom.h" />
+    <ClInclude Include="Qsci\qscilexerd.h" />
+    <ClInclude Include="Qsci\qscilexerdiff.h" />
+    <ClInclude Include="Qsci\qscilexerfortran.h" />
+    <ClInclude Include="Qsci\qscilexerfortran77.h" />
+    <ClInclude Include="Qsci\qscilexerhtml.h" />
+    <ClInclude Include="Qsci\qscilexeridl.h" />
+    <ClInclude Include="Qsci\qscilexerjava.h" />
+    <ClInclude Include="Qsci\qscilexerjavascript.h" />
+    <ClInclude Include="Qsci\qscilexerlua.h" />
+    <ClInclude Include="Qsci\qscilexermakefile.h" />
+    <ClInclude Include="Qsci\qscilexermatlab.h" />
+    <ClInclude Include="Qsci\qscilexeroctave.h" />
+    <ClInclude Include="Qsci\qscilexerpascal.h" />
+    <ClInclude Include="Qsci\qscilexerperl.h" />
+    <ClInclude Include="Qsci\qscilexerpostscript.h" />
+    <ClInclude Include="Qsci\qscilexerpov.h" />
+    <ClInclude Include="Qsci\qscilexerproperties.h" />
+    <ClInclude Include="Qsci\qscilexerpython.h" />
+    <ClInclude Include="Qsci\qscilexerruby.h" />
+    <ClInclude Include="Qsci\qscilexerspice.h" />
+    <ClInclude Include="Qsci\qscilexersql.h" />
+    <ClInclude Include="Qsci\qscilexertcl.h" />
+    <ClInclude Include="Qsci\qscilexertex.h" />
+    <ClInclude Include="Qsci\qscilexerverilog.h" />
+    <ClInclude Include="Qsci\qscilexervhdl.h" />
+    <ClInclude Include="Qsci\qscilexerxml.h" />
+    <ClInclude Include="Qsci\qscilexeryaml.h" />
+    <ClInclude Include="Qsci\qscimacro.h" />
+    <ClInclude Include="Qsci\qsciprinter.h" />
+    <ClInclude Include="Qsci\qsciscintilla.h" />
+    <ClInclude Include="Qsci\qsciscintillabase.h" />
+    <ClInclude Include="Qsci\qscistyle.h" />
+    <ClInclude Include="Qsci\qscistyledtext.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="qscintilla_cs.ts" />
+    <None Include="qscintilla_de.ts" />
+    <None Include="qscintilla_es.ts" />
+    <None Include="qscintilla_fr.ts" />
+    <None Include="qscintilla_pt_br.ts" />
+    <None Include="qscintilla_ru.ts" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties QtVersion_x0020_Win32="4.8.6" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

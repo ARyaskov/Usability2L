@@ -1,0 +1,11 @@
+﻿// Исправить код в RulesListNode
+[@meta.define(colors, QList<QColor>, global), @meta.define(backColor, QList<QColor>, global),
+@meta.define(foreColor, QList<QColor>, global), @meta.define(colors, QList<QColor>, global)].
+
+[@global.backColor = @palette.color(QPalette::Window)].
+[@global.foreColor = @palette.color(QPalette::WindowText)].
+
+[!@global.colors.contains(@global.backColor)]:-[@global.colors.append(@global.backColor)].
+[!@global.colors.contains(@global.foreColor)]:-[@global.colors.append(@global.foreColor)].
+
+[@global.colors.size() > 7]:-[@warnings += "Цвет делает поиск нужных элементов более удобным. Но не стоит злоупотреблять. Как и с количеством элементов в группе, рекомендуется использовать не более 7 цветов на форме."].

@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>723</width>
+    <height>593</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::NoFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Расписание поездов </string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout">
+    <item row="1" column="0">
+     <layout class="QGridLayout">
+      <item row="0" column="0" rowspan="2">
+       <widget class="QTableWidget" name="Table">
+        <property name="focusPolicy">
+         <enum>Qt::WheelFocus</enum>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="tabKeyNavigation">
+         <bool>false</bool>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <property name="horizontalScrollMode">
+         <enum>QAbstractItemView::ScrollPerPixel</enum>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="columnCount">
+         <number>3</number>
+        </property>
+        <column>
+         <property name="text">
+          <string>№ поезда</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Откуда</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Куда</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QGroupBox" name="groupBox">
+        <property name="maximumSize">
+         <size>
+          <width>362</width>
+          <height>2000</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <property name="title">
+         <string>Сведения о поезде</string>
+        </property>
+        <layout class="QGridLayout">
+         <item row="0" column="0">
+          <layout class="QHBoxLayout">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>№ поезда</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="trainNumber">
+             <property name="maxLength">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="QCheckBox" name="isRapid">
+           <property name="text">
+            <string>Скорый</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <layout class="QHBoxLayout">
+           <item>
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Длительность</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="duration">
+             <property name="minimum">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>10.000000000000000</double>
+             </property>
+             <property name="value">
+              <double>1.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="minimumSize">
+            <size>
+             <width>169</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>169</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="title">
+            <string>Отправление</string>
+           </property>
+           <layout class="QVBoxLayout">
+            <item>
+             <layout class="QVBoxLayout">
+              <item>
+               <layout class="QHBoxLayout">
+                <item>
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Откуда</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="from_city">
+                  <property name="maxLength">
+                   <number>30</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout">
+                <item>
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Время</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTimeEdit" name="from_time"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="1" column="2" colspan="2">
+          <widget class="QGroupBox" name="groupBox_3">
+           <property name="minimumSize">
+            <size>
+             <width>169</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>169</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="title">
+            <string>Прибытие</string>
+           </property>
+           <layout class="QVBoxLayout">
+            <item>
+             <layout class="QVBoxLayout" name="_2">
+              <item>
+               <layout class="QHBoxLayout">
+                <item>
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>Куда</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="to_city">
+                  <property name="maxLength">
+                   <number>30</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="_3">
+                <item>
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>Время</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTimeEdit" name="to_time"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="4">
+          <widget class="QGroupBox" name="groupBox_4">
+           <property name="title">
+            <string>Периодичность</string>
+           </property>
+           <layout class="QGridLayout">
+            <item row="0" column="0">
+             <layout class="QVBoxLayout">
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>Тип</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="periodicType">
+                <item>
+                 <property name="text">
+                  <string>каждый день</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>по четным дням</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>по нечетным дням</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>по дням недели</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>произвольно</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout">
+                <item>
+                 <widget class="QStackedWidget" name="stcWid">
+                  <property name="currentIndex">
+                   <number>1</number>
+                  </property>
+                  <widget class="QWidget" name="page0">
+                   <widget class="QGroupBox" name="weekDays">
+                    <property name="geometry">
+                     <rect>
+                      <x>70</x>
+                      <y>40</y>
+                      <width>188</width>
+                      <height>151</height>
+                     </rect>
+                    </property>
+                    <property name="title">
+                     <string>Дни недели</string>
+                    </property>
+                    <layout class="QGridLayout">
+                     <item row="0" column="0" colspan="3">
+                      <layout class="QHBoxLayout">
+                       <item>
+                        <widget class="QCheckBox" name="mon">
+                         <property name="text">
+                          <string>ПН</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QCheckBox" name="tue">
+                         <property name="text">
+                          <string>ВТ</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QCheckBox" name="wed">
+                         <property name="text">
+                          <string>СР</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QCheckBox" name="thur">
+                         <property name="text">
+                          <string>ЧТ</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item row="1" column="0">
+                      <spacer>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="1" column="1">
+                      <layout class="QHBoxLayout">
+                       <item>
+                        <widget class="QCheckBox" name="fri">
+                         <property name="text">
+                          <string>ПТ</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QCheckBox" name="sat">
+                         <property name="text">
+                          <string>СБ</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QCheckBox" name="sun">
+                         <property name="text">
+                          <string>ВС</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                     <item row="1" column="2">
+                      <spacer>
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                  <widget class="QWidget" name="page1">
+                   <layout class="QVBoxLayout">
+                    <item>
+                     <layout class="QHBoxLayout">
+                      <item>
+                       <widget class="QCheckBox" name="cb1">
+                        <property name="text">
+                         <string>Дата1</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDateEdit" name="de1">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout">
+                      <item>
+                       <widget class="QCheckBox" name="cb2">
+                        <property name="text">
+                         <string>Дата2</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDateEdit" name="de2">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout">
+                      <item>
+                       <widget class="QCheckBox" name="cb3">
+                        <property name="text">
+                         <string>Дата3</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDateEdit" name="de3">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout">
+                      <item>
+                       <widget class="QCheckBox" name="cb4">
+                        <property name="text">
+                         <string>Дата4</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDateEdit" name="de4">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QGroupBox" name="manageButs">
+        <property name="title">
+         <string>Управление</string>
+        </property>
+        <layout class="QGridLayout">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="butCreate">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="butDelete">
+           <property name="text">
+            <string>Удалить</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="U2LWidget" name="u2lwidget"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>U2LWidget</class>
+   <extends>QWidget</extends>
+   <header>../U2L/u2lwidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>Table</tabstop>
+  <tabstop>trainNumber</tabstop>
+  <tabstop>isRapid</tabstop>
+  <tabstop>duration</tabstop>
+  <tabstop>from_city</tabstop>
+  <tabstop>from_time</tabstop>
+  <tabstop>to_city</tabstop>
+  <tabstop>to_time</tabstop>
+  <tabstop>periodicType</tabstop>
+  <tabstop>mon</tabstop>
+  <tabstop>tue</tabstop>
+  <tabstop>wed</tabstop>
+  <tabstop>thur</tabstop>
+  <tabstop>fri</tabstop>
+  <tabstop>sat</tabstop>
+  <tabstop>sun</tabstop>
+  <tabstop>butCreate</tabstop>
+  <tabstop>butDelete</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>trainNumber</sender>
+   <signal>returnPressed()</signal>
+   <receiver>isRapid</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>458</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>534</x>
+     <y>81</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>from_city</sender>
+   <signal>returnPressed()</signal>
+   <receiver>from_time</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>485</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>485</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>from_time</sender>
+   <signal>editingFinished()</signal>
+   <receiver>to_city</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>485</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>658</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>to_city</sender>
+   <signal>returnPressed()</signal>
+   <receiver>to_time</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>658</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>658</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>to_time</sender>
+   <signal>editingFinished()</signal>
+   <receiver>periodicType</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>658</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>457</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>butCreate</sender>
+   <signal>clicked()</signal>
+   <receiver>trainNumber</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>433</x>
+     <y>365</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>458</x>
+     <y>82</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>periodicType</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>mon</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>457</x>
+     <y>275</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>514</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mon</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>tue</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>514</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>558</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tue</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>wed</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>558</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>603</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>wed</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>thur</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>603</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>647</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>thur</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>fri</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>647</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>536</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fri</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>sat</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>536</x>
+     <y>287</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>579</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sat</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>sun</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>579</x>
+     <y>287</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>622</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

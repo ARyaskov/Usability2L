@@ -1,0 +1,2 @@
+[@meta.className ==  "DateEdit", @calendarPopup == false]:-[@warnings += "Рекомендуется предоставлять пользователю календарь, для более удобного ввода даты. Календарь можно включить с помощью метода QDateEdit::setCalendarPopup(bool)."].
+

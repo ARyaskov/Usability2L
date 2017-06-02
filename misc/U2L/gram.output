@@ -1,0 +1,1482 @@
+Terminals unused in grammar
+
+   AND
+   OR
+   UMINUS
+
+
+Грамматика
+
+    0 $accept: program $end
+
+    1 program: rules_list
+
+    2 rules_list: /* пусто */
+    3           | rule
+    4           | rules_list ENDL rule
+    5           | rules_list ENDL
+
+    6 rule: head HENCE tail '.'
+    7     | head '.'
+
+    8 head: predicate
+    9     | predicate ENDL
+
+   10 tail: predicate
+   11     | ENDL predicate
+
+   12 predicate: '[' subgoal_list ']'
+
+   13 subgoal_list: subgoal
+   14             | subgoal_list ',' subgoal
+   15             | subgoal_list ';' subgoal
+
+   16 subgoal: ENDL
+   17        | expr
+   18        | predicate
+   19        | '!' predicate
+
+   20 expr_list: expr
+   21          | expr_list ',' expr
+
+   22 expr: identifier
+   23     | expr PLUS expr
+   24     | expr MINUS expr
+   25     | expr MUL expr
+   26     | expr DIV expr
+   27     | expr ASSMNT expr
+   28     | expr LT expr
+   29     | expr GT expr
+   30     | expr GTEQ expr
+   31     | expr LTEQ expr
+   32     | expr EQ expr
+   33     | expr NEQ expr
+   34     | _TRUE
+   35     | _FALSE
+   36     | INT_CONST
+   37     | STRING_CONST
+   38     | DOUBLE_CONST
+   39     | identifier PLUSASSMNT expr
+   40     | identifier MINUSASSMNT expr
+   41     | request_members '(' expr_list ')'
+   42     | request_members
+   43     | '!' request_members '(' expr_list ')'
+   44     | '!' request_members
+
+   45 request_members: identifier '.' identifier
+   46                | request_members '.' identifier
+
+   47 identifier: PROPERTY
+   48           | ID
+   49           | ATMETA
+   50           | ATGLOBAL
+   51           | ATBEH
+   52           | ATAPP
+   53           | ATWARNINGS
+   54           | ATERRORS
+
+
+Терминальные символы с правилами, в которых они появляются
+
+$end (0) 0
+'!' (33) 19 43 44
+'(' (40) 41 43
+')' (41) 41 43
+',' (44) 14 21
+'.' (46) 6 7 45 46
+';' (59) 15
+'[' (91) 12
+']' (93) 12
+error (256)
+INT_CONST (258) 36
+STRING_CONST (259) 37
+DOUBLE_CONST (260) 38
+ID (261) 48
+PROPERTY (262) 47
+ATMETA (263) 49
+ATERRORS (264) 54
+ATAPP (265) 52
+ATBEH (266) 51
+ATWARNINGS (267) 53
+ATGLOBAL (268) 50
+_TRUE (269) 34
+_FALSE (270) 35
+ENDL (271) 4 5 9 11 16
+AND (272)
+OR (273)
+HENCE (274) 6
+PLUSASSMNT (275) 39
+MINUSASSMNT (276) 40
+ASSMNT (277) 27
+EQ (278) 32
+NEQ (279) 33
+LTEQ (280) 31
+GTEQ (281) 30
+LT (282) 28
+GT (283) 29
+MINUS (284) 24
+PLUS (285) 23
+DIV (286) 26
+MUL (287) 25
+UMINUS (288)
+
+
+Нетерминальные символы с правилами, в которых они появляются
+
+$accept (42)
+    налево: 0
+program (43)
+    налево: 1, направо: 0
+rules_list (44)
+    налево: 2 3 4 5, направо: 1 4 5
+rule (45)
+    налево: 6 7, направо: 3 4
+head (46)
+    налево: 8 9, направо: 6 7
+tail (47)
+    налево: 10 11, направо: 6
+predicate (48)
+    налево: 12, направо: 8 9 10 11 18 19
+subgoal_list (49)
+    налево: 13 14 15, направо: 12 14 15
+subgoal (50)
+    налево: 16 17 18 19, направо: 13 14 15
+expr_list (51)
+    налево: 20 21, направо: 21 41 43
+expr (52)
+    налево: 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
+    41 42 43 44, направо: 17 20 21 23 24 25 26 27 28 29 30 31 32 33
+    39 40
+request_members (53)
+    налево: 45 46, направо: 41 42 43 44 46
+identifier (54)
+    налево: 47 48 49 50 51 52 53 54, направо: 22 39 40 45 46
+
+
+состояние 0
+
+    0 $accept: . program $end
+
+    '['  сдвиг, и переход в состояние 1
+
+    $default  вывод с использованием правила 2 (rules_list)
+
+    program     переход в состояние 2
+    rules_list  переход в состояние 3
+    rule        переход в состояние 4
+    head        переход в состояние 5
+    predicate   переход в состояние 6
+
+
+состояние 1
+
+   12 predicate: '[' . subgoal_list ']'
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    ENDL          сдвиг, и переход в состояние 20
+    '['           сдвиг, и переход в состояние 1
+    '!'           сдвиг, и переход в состояние 21
+
+    predicate        переход в состояние 22
+    subgoal_list     переход в состояние 23
+    subgoal          переход в состояние 24
+    expr             переход в состояние 25
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 2
+
+    0 $accept: program . $end
+
+    $end  сдвиг, и переход в состояние 28
+
+
+состояние 3
+
+    1 program: rules_list .
+    4 rules_list: rules_list . ENDL rule
+    5           | rules_list . ENDL
+
+    ENDL  сдвиг, и переход в состояние 29
+
+    $default  вывод с использованием правила 1 (program)
+
+
+состояние 4
+
+    3 rules_list: rule .
+
+    $default  вывод с использованием правила 3 (rules_list)
+
+
+состояние 5
+
+    6 rule: head . HENCE tail '.'
+    7     | head . '.'
+
+    HENCE  сдвиг, и переход в состояние 30
+    '.'    сдвиг, и переход в состояние 31
+
+
+состояние 6
+
+    8 head: predicate .
+    9     | predicate . ENDL
+
+    ENDL  сдвиг, и переход в состояние 32
+
+    $default  вывод с использованием правила 8 (head)
+
+
+состояние 7
+
+   36 expr: INT_CONST .
+
+    $default  вывод с использованием правила 36 (expr)
+
+
+состояние 8
+
+   37 expr: STRING_CONST .
+
+    $default  вывод с использованием правила 37 (expr)
+
+
+состояние 9
+
+   38 expr: DOUBLE_CONST .
+
+    $default  вывод с использованием правила 38 (expr)
+
+
+состояние 10
+
+   48 identifier: ID .
+
+    $default  вывод с использованием правила 48 (identifier)
+
+
+состояние 11
+
+   47 identifier: PROPERTY .
+
+    $default  вывод с использованием правила 47 (identifier)
+
+
+состояние 12
+
+   49 identifier: ATMETA .
+
+    $default  вывод с использованием правила 49 (identifier)
+
+
+состояние 13
+
+   54 identifier: ATERRORS .
+
+    $default  вывод с использованием правила 54 (identifier)
+
+
+состояние 14
+
+   52 identifier: ATAPP .
+
+    $default  вывод с использованием правила 52 (identifier)
+
+
+состояние 15
+
+   51 identifier: ATBEH .
+
+    $default  вывод с использованием правила 51 (identifier)
+
+
+состояние 16
+
+   53 identifier: ATWARNINGS .
+
+    $default  вывод с использованием правила 53 (identifier)
+
+
+состояние 17
+
+   50 identifier: ATGLOBAL .
+
+    $default  вывод с использованием правила 50 (identifier)
+
+
+состояние 18
+
+   34 expr: _TRUE .
+
+    $default  вывод с использованием правила 34 (expr)
+
+
+состояние 19
+
+   35 expr: _FALSE .
+
+    $default  вывод с использованием правила 35 (expr)
+
+
+состояние 20
+
+   16 subgoal: ENDL .
+
+    $default  вывод с использованием правила 16 (subgoal)
+
+
+состояние 21
+
+   19 subgoal: '!' . predicate
+   43 expr: '!' . request_members '(' expr_list ')'
+   44     | '!' . request_members
+
+    ID          сдвиг, и переход в состояние 10
+    PROPERTY    сдвиг, и переход в состояние 11
+    ATMETA      сдвиг, и переход в состояние 12
+    ATERRORS    сдвиг, и переход в состояние 13
+    ATAPP       сдвиг, и переход в состояние 14
+    ATBEH       сдвиг, и переход в состояние 15
+    ATWARNINGS  сдвиг, и переход в состояние 16
+    ATGLOBAL    сдвиг, и переход в состояние 17
+    '['         сдвиг, и переход в состояние 1
+
+    predicate        переход в состояние 33
+    request_members  переход в состояние 34
+    identifier       переход в состояние 35
+
+
+состояние 22
+
+   18 subgoal: predicate .
+
+    $default  вывод с использованием правила 18 (subgoal)
+
+
+состояние 23
+
+   12 predicate: '[' subgoal_list . ']'
+   14 subgoal_list: subgoal_list . ',' subgoal
+   15             | subgoal_list . ';' subgoal
+
+    ','  сдвиг, и переход в состояние 36
+    ';'  сдвиг, и переход в состояние 37
+    ']'  сдвиг, и переход в состояние 38
+
+
+состояние 24
+
+   13 subgoal_list: subgoal .
+
+    $default  вывод с использованием правила 13 (subgoal_list)
+
+
+состояние 25
+
+   17 subgoal: expr .
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    ASSMNT  сдвиг, и переход в состояние 39
+    EQ      сдвиг, и переход в состояние 40
+    NEQ     сдвиг, и переход в состояние 41
+    LTEQ    сдвиг, и переход в состояние 42
+    GTEQ    сдвиг, и переход в состояние 43
+    LT      сдвиг, и переход в состояние 44
+    GT      сдвиг, и переход в состояние 45
+    MINUS   сдвиг, и переход в состояние 46
+    PLUS    сдвиг, и переход в состояние 47
+    DIV     сдвиг, и переход в состояние 48
+    MUL     сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 17 (subgoal)
+
+
+состояние 26
+
+   41 expr: request_members . '(' expr_list ')'
+   42     | request_members .
+   46 request_members: request_members . '.' identifier
+
+    '.'  сдвиг, и переход в состояние 50
+    '('  сдвиг, и переход в состояние 51
+
+    $default  вывод с использованием правила 42 (expr)
+
+
+состояние 27
+
+   22 expr: identifier .
+   39     | identifier . PLUSASSMNT expr
+   40     | identifier . MINUSASSMNT expr
+   45 request_members: identifier . '.' identifier
+
+    '.'          сдвиг, и переход в состояние 52
+    PLUSASSMNT   сдвиг, и переход в состояние 53
+    MINUSASSMNT  сдвиг, и переход в состояние 54
+
+    $default  вывод с использованием правила 22 (expr)
+
+
+состояние 28
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+состояние 29
+
+    4 rules_list: rules_list ENDL . rule
+    5           | rules_list ENDL .
+
+    '['  сдвиг, и переход в состояние 1
+
+    $default  вывод с использованием правила 5 (rules_list)
+
+    rule       переход в состояние 55
+    head       переход в состояние 5
+    predicate  переход в состояние 6
+
+
+состояние 30
+
+    6 rule: head HENCE . tail '.'
+
+    ENDL  сдвиг, и переход в состояние 56
+    '['   сдвиг, и переход в состояние 1
+
+    tail       переход в состояние 57
+    predicate  переход в состояние 58
+
+
+состояние 31
+
+    7 rule: head '.' .
+
+    $default  вывод с использованием правила 7 (rule)
+
+
+состояние 32
+
+    9 head: predicate ENDL .
+
+    $default  вывод с использованием правила 9 (head)
+
+
+состояние 33
+
+   19 subgoal: '!' predicate .
+
+    $default  вывод с использованием правила 19 (subgoal)
+
+
+состояние 34
+
+   43 expr: '!' request_members . '(' expr_list ')'
+   44     | '!' request_members .
+   46 request_members: request_members . '.' identifier
+
+    '.'  сдвиг, и переход в состояние 50
+    '('  сдвиг, и переход в состояние 59
+
+    $default  вывод с использованием правила 44 (expr)
+
+
+состояние 35
+
+   45 request_members: identifier . '.' identifier
+
+    '.'  сдвиг, и переход в состояние 52
+
+
+состояние 36
+
+   14 subgoal_list: subgoal_list ',' . subgoal
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    ENDL          сдвиг, и переход в состояние 20
+    '['           сдвиг, и переход в состояние 1
+    '!'           сдвиг, и переход в состояние 21
+
+    predicate        переход в состояние 22
+    subgoal          переход в состояние 60
+    expr             переход в состояние 25
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 37
+
+   15 subgoal_list: subgoal_list ';' . subgoal
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    ENDL          сдвиг, и переход в состояние 20
+    '['           сдвиг, и переход в состояние 1
+    '!'           сдвиг, и переход в состояние 21
+
+    predicate        переход в состояние 22
+    subgoal          переход в состояние 61
+    expr             переход в состояние 25
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 38
+
+   12 predicate: '[' subgoal_list ']' .
+
+    $default  вывод с использованием правила 12 (predicate)
+
+
+состояние 39
+
+   27 expr: expr ASSMNT . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 63
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 40
+
+   32 expr: expr EQ . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 64
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 41
+
+   33 expr: expr NEQ . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 65
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 42
+
+   31 expr: expr LTEQ . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 66
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 43
+
+   30 expr: expr GTEQ . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 67
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 44
+
+   28 expr: expr LT . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 68
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 45
+
+   29 expr: expr GT . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 69
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 46
+
+   24 expr: expr MINUS . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 70
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 47
+
+   23 expr: expr PLUS . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 71
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 48
+
+   26 expr: expr DIV . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 72
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 49
+
+   25 expr: expr MUL . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 73
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 50
+
+   46 request_members: request_members '.' . identifier
+
+    ID          сдвиг, и переход в состояние 10
+    PROPERTY    сдвиг, и переход в состояние 11
+    ATMETA      сдвиг, и переход в состояние 12
+    ATERRORS    сдвиг, и переход в состояние 13
+    ATAPP       сдвиг, и переход в состояние 14
+    ATBEH       сдвиг, и переход в состояние 15
+    ATWARNINGS  сдвиг, и переход в состояние 16
+    ATGLOBAL    сдвиг, и переход в состояние 17
+
+    identifier  переход в состояние 74
+
+
+состояние 51
+
+   41 expr: request_members '(' . expr_list ')'
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr_list        переход в состояние 75
+    expr             переход в состояние 76
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 52
+
+   45 request_members: identifier '.' . identifier
+
+    ID          сдвиг, и переход в состояние 10
+    PROPERTY    сдвиг, и переход в состояние 11
+    ATMETA      сдвиг, и переход в состояние 12
+    ATERRORS    сдвиг, и переход в состояние 13
+    ATAPP       сдвиг, и переход в состояние 14
+    ATBEH       сдвиг, и переход в состояние 15
+    ATWARNINGS  сдвиг, и переход в состояние 16
+    ATGLOBAL    сдвиг, и переход в состояние 17
+
+    identifier  переход в состояние 77
+
+
+состояние 53
+
+   39 expr: identifier PLUSASSMNT . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 78
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 54
+
+   40 expr: identifier MINUSASSMNT . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 79
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 55
+
+    4 rules_list: rules_list ENDL rule .
+
+    $default  вывод с использованием правила 4 (rules_list)
+
+
+состояние 56
+
+   11 tail: ENDL . predicate
+
+    '['  сдвиг, и переход в состояние 1
+
+    predicate  переход в состояние 80
+
+
+состояние 57
+
+    6 rule: head HENCE tail . '.'
+
+    '.'  сдвиг, и переход в состояние 81
+
+
+состояние 58
+
+   10 tail: predicate .
+
+    $default  вывод с использованием правила 10 (tail)
+
+
+состояние 59
+
+   43 expr: '!' request_members '(' . expr_list ')'
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr_list        переход в состояние 82
+    expr             переход в состояние 76
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 60
+
+   14 subgoal_list: subgoal_list ',' subgoal .
+
+    $default  вывод с использованием правила 14 (subgoal_list)
+
+
+состояние 61
+
+   15 subgoal_list: subgoal_list ';' subgoal .
+
+    $default  вывод с использованием правила 15 (subgoal_list)
+
+
+состояние 62
+
+   43 expr: '!' . request_members '(' expr_list ')'
+   44     | '!' . request_members
+
+    ID          сдвиг, и переход в состояние 10
+    PROPERTY    сдвиг, и переход в состояние 11
+    ATMETA      сдвиг, и переход в состояние 12
+    ATERRORS    сдвиг, и переход в состояние 13
+    ATAPP       сдвиг, и переход в состояние 14
+    ATBEH       сдвиг, и переход в состояние 15
+    ATWARNINGS  сдвиг, и переход в состояние 16
+    ATGLOBAL    сдвиг, и переход в состояние 17
+
+    request_members  переход в состояние 34
+    identifier       переход в состояние 35
+
+
+состояние 63
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   27     | expr ASSMNT expr .
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    ASSMNT  сдвиг, и переход в состояние 39
+    EQ      сдвиг, и переход в состояние 40
+    NEQ     сдвиг, и переход в состояние 41
+    LTEQ    сдвиг, и переход в состояние 42
+    GTEQ    сдвиг, и переход в состояние 43
+    LT      сдвиг, и переход в состояние 44
+    GT      сдвиг, и переход в состояние 45
+    MINUS   сдвиг, и переход в состояние 46
+    PLUS    сдвиг, и переход в состояние 47
+    DIV     сдвиг, и переход в состояние 48
+    MUL     сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 27 (expr)
+
+
+состояние 64
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   32     | expr EQ expr .
+   33     | expr . NEQ expr
+
+    MINUS  сдвиг, и переход в состояние 46
+    PLUS   сдвиг, и переход в состояние 47
+    DIV    сдвиг, и переход в состояние 48
+    MUL    сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 32 (expr)
+
+
+состояние 65
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+   33     | expr NEQ expr .
+
+    MINUS  сдвиг, и переход в состояние 46
+    PLUS   сдвиг, и переход в состояние 47
+    DIV    сдвиг, и переход в состояние 48
+    MUL    сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 33 (expr)
+
+
+состояние 66
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   31     | expr LTEQ expr .
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    MINUS  сдвиг, и переход в состояние 46
+    PLUS   сдвиг, и переход в состояние 47
+    DIV    сдвиг, и переход в состояние 48
+    MUL    сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 31 (expr)
+
+
+состояние 67
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   30     | expr GTEQ expr .
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    MINUS  сдвиг, и переход в состояние 46
+    PLUS   сдвиг, и переход в состояние 47
+    DIV    сдвиг, и переход в состояние 48
+    MUL    сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 30 (expr)
+
+
+состояние 68
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   28     | expr LT expr .
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    MINUS  сдвиг, и переход в состояние 46
+    PLUS   сдвиг, и переход в состояние 47
+    DIV    сдвиг, и переход в состояние 48
+    MUL    сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 28 (expr)
+
+
+состояние 69
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   29     | expr GT expr .
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    MINUS  сдвиг, и переход в состояние 46
+    PLUS   сдвиг, и переход в состояние 47
+    DIV    сдвиг, и переход в состояние 48
+    MUL    сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 29 (expr)
+
+
+состояние 70
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   24     | expr MINUS expr .
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    DIV  сдвиг, и переход в состояние 48
+    MUL  сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 24 (expr)
+
+
+состояние 71
+
+   23 expr: expr . PLUS expr
+   23     | expr PLUS expr .
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    DIV  сдвиг, и переход в состояние 48
+    MUL  сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 23 (expr)
+
+
+состояние 72
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   26     | expr DIV expr .
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    $default  вывод с использованием правила 26 (expr)
+
+
+состояние 73
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   25     | expr MUL expr .
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    $default  вывод с использованием правила 25 (expr)
+
+
+состояние 74
+
+   46 request_members: request_members '.' identifier .
+
+    $default  вывод с использованием правила 46 (request_members)
+
+
+состояние 75
+
+   21 expr_list: expr_list . ',' expr
+   41 expr: request_members '(' expr_list . ')'
+
+    ','  сдвиг, и переход в состояние 83
+    ')'  сдвиг, и переход в состояние 84
+
+
+состояние 76
+
+   20 expr_list: expr .
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    ASSMNT  сдвиг, и переход в состояние 39
+    EQ      сдвиг, и переход в состояние 40
+    NEQ     сдвиг, и переход в состояние 41
+    LTEQ    сдвиг, и переход в состояние 42
+    GTEQ    сдвиг, и переход в состояние 43
+    LT      сдвиг, и переход в состояние 44
+    GT      сдвиг, и переход в состояние 45
+    MINUS   сдвиг, и переход в состояние 46
+    PLUS    сдвиг, и переход в состояние 47
+    DIV     сдвиг, и переход в состояние 48
+    MUL     сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 20 (expr_list)
+
+
+состояние 77
+
+   45 request_members: identifier '.' identifier .
+
+    $default  вывод с использованием правила 45 (request_members)
+
+
+состояние 78
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+   39     | identifier PLUSASSMNT expr .
+
+    ASSMNT  сдвиг, и переход в состояние 39
+    EQ      сдвиг, и переход в состояние 40
+    NEQ     сдвиг, и переход в состояние 41
+    LTEQ    сдвиг, и переход в состояние 42
+    GTEQ    сдвиг, и переход в состояние 43
+    LT      сдвиг, и переход в состояние 44
+    GT      сдвиг, и переход в состояние 45
+    MINUS   сдвиг, и переход в состояние 46
+    PLUS    сдвиг, и переход в состояние 47
+    DIV     сдвиг, и переход в состояние 48
+    MUL     сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 39 (expr)
+
+
+состояние 79
+
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+   40     | identifier MINUSASSMNT expr .
+
+    ASSMNT  сдвиг, и переход в состояние 39
+    EQ      сдвиг, и переход в состояние 40
+    NEQ     сдвиг, и переход в состояние 41
+    LTEQ    сдвиг, и переход в состояние 42
+    GTEQ    сдвиг, и переход в состояние 43
+    LT      сдвиг, и переход в состояние 44
+    GT      сдвиг, и переход в состояние 45
+    MINUS   сдвиг, и переход в состояние 46
+    PLUS    сдвиг, и переход в состояние 47
+    DIV     сдвиг, и переход в состояние 48
+    MUL     сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 40 (expr)
+
+
+состояние 80
+
+   11 tail: ENDL predicate .
+
+    $default  вывод с использованием правила 11 (tail)
+
+
+состояние 81
+
+    6 rule: head HENCE tail '.' .
+
+    $default  вывод с использованием правила 6 (rule)
+
+
+состояние 82
+
+   21 expr_list: expr_list . ',' expr
+   43 expr: '!' request_members '(' expr_list . ')'
+
+    ','  сдвиг, и переход в состояние 83
+    ')'  сдвиг, и переход в состояние 85
+
+
+состояние 83
+
+   21 expr_list: expr_list ',' . expr
+
+    INT_CONST     сдвиг, и переход в состояние 7
+    STRING_CONST  сдвиг, и переход в состояние 8
+    DOUBLE_CONST  сдвиг, и переход в состояние 9
+    ID            сдвиг, и переход в состояние 10
+    PROPERTY      сдвиг, и переход в состояние 11
+    ATMETA        сдвиг, и переход в состояние 12
+    ATERRORS      сдвиг, и переход в состояние 13
+    ATAPP         сдвиг, и переход в состояние 14
+    ATBEH         сдвиг, и переход в состояние 15
+    ATWARNINGS    сдвиг, и переход в состояние 16
+    ATGLOBAL      сдвиг, и переход в состояние 17
+    _TRUE         сдвиг, и переход в состояние 18
+    _FALSE        сдвиг, и переход в состояние 19
+    '!'           сдвиг, и переход в состояние 62
+
+    expr             переход в состояние 86
+    request_members  переход в состояние 26
+    identifier       переход в состояние 27
+
+
+состояние 84
+
+   41 expr: request_members '(' expr_list ')' .
+
+    $default  вывод с использованием правила 41 (expr)
+
+
+состояние 85
+
+   43 expr: '!' request_members '(' expr_list ')' .
+
+    $default  вывод с использованием правила 43 (expr)
+
+
+состояние 86
+
+   21 expr_list: expr_list ',' expr .
+   23 expr: expr . PLUS expr
+   24     | expr . MINUS expr
+   25     | expr . MUL expr
+   26     | expr . DIV expr
+   27     | expr . ASSMNT expr
+   28     | expr . LT expr
+   29     | expr . GT expr
+   30     | expr . GTEQ expr
+   31     | expr . LTEQ expr
+   32     | expr . EQ expr
+   33     | expr . NEQ expr
+
+    ASSMNT  сдвиг, и переход в состояние 39
+    EQ      сдвиг, и переход в состояние 40
+    NEQ     сдвиг, и переход в состояние 41
+    LTEQ    сдвиг, и переход в состояние 42
+    GTEQ    сдвиг, и переход в состояние 43
+    LT      сдвиг, и переход в состояние 44
+    GT      сдвиг, и переход в состояние 45
+    MINUS   сдвиг, и переход в состояние 46
+    PLUS    сдвиг, и переход в состояние 47
+    DIV     сдвиг, и переход в состояние 48
+    MUL     сдвиг, и переход в состояние 49
+
+    $default  вывод с использованием правила 21 (expr_list)

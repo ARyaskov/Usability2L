@@ -1,0 +1,7 @@
+[@meta.className == "PushButton", @text.isEmpty() ]:-[@warnings += "Желательно сделать надпись на кнопке."].
+
+[@meta.className == "PushButton", @text.isEmpty(), toolTip().isEmpty(), @icon.isNull() ]:-[@errors += "Кнопка без надписи, всплывающей подсказки, иконки неприемлема. Часто её назначение непонятно, она незаметна."].
+
+[@meta.className == "PushButton", @text.isEmpty(), toolTip().isEmpty(), !@icon.isNull() ]:-[@errors += "На кнопке установлена иконка, но не все пользователи смогут понять, что на ней изображено. Снабдите кнопку всплывающей подсказкой (ToolTip, WhatsThis)."].
+
+[@meta.className == "PushButton", @text.split("\n").size() > 1 ]:-[@errors += "Не стоит делать надпись на кнопке в несколько строк. Кнопка должна сообщать о своём действии, а не описывать его."].

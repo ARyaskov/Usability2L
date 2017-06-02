@@ -1,0 +1,1 @@
+﻿[@meta.className == QDoubleSpinBox, @minimum == 1, @maximum == 10]:-[@warnings+="Диапазон значений счётчика совпадает с диапазоном по-умолчанию для QSpinBox. Возможно забыли прописать требуемые по заданию границы. Это возможно сделать при помощи QSpinBox::setMinimum(int) и QSpinBox::setMaximum(int)"].

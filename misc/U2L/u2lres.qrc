@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>U2L_64.png</file>
+        <file>IVL_64.png</file>
+        <file>error.png</file>
+        <file>warning.png</file>
+        <file>R_64.png</file>
+        <file>E_64.png</file>
+    </qresource>
+</RCC>

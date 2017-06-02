@@ -1,0 +1,4 @@
+[@meta.className ==  "GroupBox", @title.isEmpty()]:-[@warnings += "Группа должна иметь название, чтобы пользователь мог как-то идентифицировать функции,\
+ которая она содержит. Название можно задать с помощью QGroupBox::setTitle(const QString& title)."].
+
+[@meta.parentClassName == "GroupBox", @layout == nullptr]

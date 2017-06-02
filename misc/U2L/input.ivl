@@ -1,0 +1,1 @@
+[@meta.class == PushButton,@beh.press.isLaunch(@global.Dialog,@global.net),!@text.endsWith("...")]:-[@warnings += "Hello!"].
